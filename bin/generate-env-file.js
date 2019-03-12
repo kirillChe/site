@@ -1,4 +1,6 @@
-const wpms = require('../../wpms2');
+#!/usr/bin/env node
+
+const wpms = require('./index');
 const fs = require('fs');
 
 wpms.boot().then(() => {

@@ -1,9 +1,9 @@
-const wpms = require('../../wpms2');
+const wpms = require('wpms2');
 const app = module.exports = wpms.createApp();
 
 app.start = () => {
   // set the port
-  const port = 3000;
+  const port = process.env.PORT || 3000;
   // start the app
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`); // eslint-disable-line no-console
