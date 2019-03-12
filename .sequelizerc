@@ -1,0 +1,17 @@
+const fs = require('fs')
+const path = require('path')
+
+if (! fs.existsSync(__dirname + '/app/configs/env.json')) {
+	console.log(`NO 'config/env.json' FILE FOUND`);
+	console.log(`PLEASE RUN 'npm run gen:env' COMMAND`);
+	process.exit(0);
+}
+
+const config = require(__dirname + '/app/configs/env.json').db;
+
+module.exports = {
+  config: path.resolve('app/configs', 'database.js'),
+  'models-path': path.resolve('app/db', 'models'),
+  'seeders-path': path.resolve('app/db', 'seeders'),
+  'migrations-path': path.resolve('app/db', 'migrations'),
+}

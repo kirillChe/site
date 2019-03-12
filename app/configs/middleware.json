@@ -1,0 +1,18 @@
+{
+  "initial": {},
+  "parse": {
+    "body-parser#json": {},
+    "body-parser#urlencoded": {
+      "extended": true
+    }
+  },
+  "routes:before": {
+    "wpms#queryParser": {}
+  },
+  "routes": {
+    "wpms#api": {}
+  },
+  "final:after": {
+    "wpms#errorHandler": {}
+  }
+}
