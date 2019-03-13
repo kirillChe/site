@@ -1,5 +1,5 @@
 {
-  "name": "wp-ms-site",
+  "name": "site",
   "version": "1.0.0",
   "description": "WebsPlanet Site MicroService",
   "main": "app/index.js",
@@ -8,11 +8,12 @@
     "test": "NODE_ENV=test mocha tests/unit/*.js --exit",
     "start": "NODE_ENV=development DEBUG=1 pm2 start app/server.js --watch",
     "serve": "node app/index.js",
-    "db:migrate": "node_modules/.bin/sequelize db:migrate",
+    "gen:env": "node bin/generate-env-file.js",
+    "db:pre-migrate": "npm run gen:env && node bin/create-db.js",
+    "db:migrate": "npm run db:pre-migrate && node_modules/.bin/sequelize db:migrate",
     "db:migrate:undo": "node_modules/.bin/sequelize db:migrate:undo",
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
-    "db:unseed": "node_modules/.bin/sequelize db:seed:undo:all",
-    "gen:env": "node bin/generate-env-file.js"
+    "db:unseed": "node_modules/.bin/sequelize db:seed:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,6 @@
     "eslint": "^5.15.0",
     "faker": "^4.1.0",
     "mocha": "^6.0.2",
-    "pm2": "^3.3.1",
     "prettier": "^1.16.4",
     "supertest": "^3.4.2"
   },
@@ -33,6 +33,6 @@
     "require-all": "^3.0.0",
     "sequelize": "^4.43.0",
     "sequelize-cli": "^5.4.0",
-    "wpms2": "git+http://devgit.servers.local/Dev/wpms2.git#master"
+    "wpms2": "git+http://devgit.servers.local/Dev/wpms2.git"
   }
 }
