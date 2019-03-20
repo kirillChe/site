@@ -1,4 +1,5 @@
 const {
+  CanvasesController,
   SitesController,
   SiteContentController,
   SiteMenuController,
@@ -16,4 +17,8 @@ module.exports = app => {
   app.get('/site-content', SiteContentController.find);
 
   app.get('/site-menu', SiteMenuController.find);
+
+  // Canvases
+  app.get('/canvases', CanvasesController.find);
+  app.get('/canvases/:id', CanvasesController.findById);
 };

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const SiteContent = sequelize.define('SiteContent', {
     type: DataTypes.STRING(128),
     name: DataTypes.STRING(256),
-    value: DataTypes.TEXT,
+    data: DataTypes.TEXT,
     sortOrder: DataTypes.INTEGER(11).UNSIGNED,
     permalink: DataTypes.STRING(256),
     layoutId: DataTypes.INTEGER(11).UNSIGNED,

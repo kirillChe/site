@@ -5,6 +5,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING(128),
     },
+    type: {
+      allowNull: false,
+      type: DataTypes.ENUM('REGULAR', 'TEMPLATE_SITE'),
+      defaultValue: 'REGULAR'
+    },
     templateId: {
       allowNull: false,
       type: DataTypes.INTEGER(11).UNSIGNED

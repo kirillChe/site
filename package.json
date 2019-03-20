@@ -1,15 +1,18 @@
 {
   "name": "site",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "http://devgit.servers.local/Dev/site.git"
+  },
   "description": "WebsPlanet Site MicroService",
   "main": "app/index.js",
   "scripts": {
     "pretest": "eslint .",
-    "test": "NODE_ENV=test mocha tests/unit/*.js --exit",
+    "test": "PORT=10001 NODE_ENV=test mocha tests/unit/*.js --exit",
     "start": "NODE_ENV=development DEBUG=1 pm2 start app/server.js --watch",
-    "serve": "node app/index.js",
     "gen:env": "node bin/generate-env-file.js",
-    "db:pre-migrate": "npm run gen:env && node bin/create-db.js",
+    "db:pre-migrate": "npm run gen:env",
     "db:migrate": "npm run db:pre-migrate && node_modules/.bin/sequelize db:migrate",
     "db:migrate:undo": "node_modules/.bin/sequelize db:migrate:undo",
     "db:seed": "node_modules/.bin/sequelize db:seed:all",
@@ -20,7 +23,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^5.15.0",
+    "eslint": "^5.15.2",
     "faker": "^4.1.0",
     "mocha": "^6.0.2",
     "prettier": "^1.16.4",

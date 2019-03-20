@@ -4,7 +4,8 @@ module.exports = {
   up: (queryInterface) => {
     return queryInterface.bulkInsert('Sites', [{
       id: 1,
-      name: 'Eleganter',
+      name: 'Minimalista',
+      type: 'TEMPLATE_SITE',
       templateId: 1,
       status: 'ACTIVE',
       createdAt: new Date(),

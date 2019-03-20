@@ -12,6 +12,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(128)
       },
+      type: {
+        allowNull: false,
+        type: Sequelize.ENUM('REGULAR', 'TEMPLATE_SITE'),
+        defaultValue: 'REGULAR'
+      },
       templateId: {
         allowNull: false,
         type: Sequelize.INTEGER(11).UNSIGNED

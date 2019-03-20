@@ -29,7 +29,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING(256)
       },
-      value: {
+      data: {
         type: Sequelize.TEXT
       },
       sortOrder: {
