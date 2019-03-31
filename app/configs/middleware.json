@@ -7,11 +7,9 @@
     }
   },
   "routes:before": {
-    "wpms#queryParser": {}
+    "wpms#sequelizeQueryParser": {}
   },
-  "routes": {
-    "wpms#api": {}
-  },
+  "routes": {},
   "final:after": {
     "wpms#errorHandler": {}
   }

@@ -35,7 +35,9 @@ describe('Test site CRUD APIs', function () {
       .post('/sites')
       .set('x-wpms-ctx', JSON.stringify(wpmsCtx))
       .send({
+        accountId: 1001,
         name: 'My Cool Site',
+        subdomain: 'my-cool-site.websplanet.com',
         templateId: 1
       })
       .expect(201)
